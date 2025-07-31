@@ -1,0 +1,11 @@
+<h1>{{ ad.title }}</h1>
+<p>{{ ad.description }}</p>
+<p>Price: {{ ad.price }} PLN</p>
+<div>
+  {% for image in ad.images %}
+    <img src="/uploads/images/{{ image.file }}" width="140" alt="image"/>
+  {% else %}
+    <p>Lack of images</p>
+  {% endfor %}
+</div>
+<a href="{{ path('advertisement_index') }}">Back</a>
