@@ -4,6 +4,6 @@
         <a href="{{ path('advertisement_show', {id: ad.id}) }}">{{ ad.title }}</a> - {{ ad.price }} PLN
     </div>
 {% else %}
-    <div>LAck of advertisements</div>
+    <div>Lack of advertisements</div>
 {% endfor %}
 <a href="{{ path('advertisement_new') }}">Add advertisement</a>
