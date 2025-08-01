@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity]
 class Advertisement
@@ -26,7 +27,7 @@ class Advertisement
 
     public function __construct()
     {
-        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int { 
@@ -72,6 +73,7 @@ class Advertisement
 
         return $this;
     }
+
     public function removeImage(Image $img): self { 
         if ($this->images->removeElement($img)) { 
             if ($img->getAdvertisement() === $this) { 

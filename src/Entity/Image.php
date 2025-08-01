@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
+use DateTimeImmutable;
 
 #[ORM\Entity]
 #[Vich\Uploadable]
@@ -28,13 +29,13 @@ class Image
     private ?Advertisement $advertisement = null;
 
     #[ORM\Column(type:"datetime_immutable")]
-    private ?\DateTimeImmutable $updatedAt = null;
+    private ?DateTimeImmutable $updatedAt = null;
 
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
         if ($imageFile) {
-            $this->updatedAt = new \DateTimeImmutable();
+            $this->updatedAt = new DateTimeImmutable();
         }
     }
 
